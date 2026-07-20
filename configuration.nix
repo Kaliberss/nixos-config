@@ -1,33 +1,40 @@
-# Edit this configuration file to define what should be installed on
-# your system. Help is available in the configuration.nix(5) man page, on
-# https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
-
 { config, lib, pkgs, ... }:
 
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./packages.nix
+      ./hyprland.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-   networking.hostName = "laptop"; # Define your hostname.
-
-  # Configure network connections interactively with nmcli or nmtui.
+  networking.hostName = "laptop"; # Define your hostname.
   networking.networkmanager.enable = true;
 
   # Enable Hardware Acceleration
-
-   hardware.graphics.enable = true;
-  # Set your time zone.
-   time.timeZone = "America/Sao_Paulo";
+  hardware.graphics.enable = true;
+ 
+  time.timeZone = "America/Sao_Paulo";
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+
+   nix = {
+
+     gc = {
+	automatic = true;
+	dates = "weekly";
+	options = "--delete-older-than 30d";
+	};
+     settings = {
+     	auto-optimise-store = true;
+	};
+     };
 
   # Select internationalisation properties.
   # i18n.defaultLocale = "en_US.UTF-8";
@@ -48,30 +55,18 @@
     model = "abnt2";
 };
 
-   services.greetd = {
-	enable = true;
-	settings = {
-		default_session = {
-			command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd start-hyprland";
-			user = "greeter";
-			};
-		};
-	};
   # services.xserver.xkb.options = "eurosign:e,caps:escape";
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 
-  # Enable sound.
-  # services.pulseaudio.enable = true;
-  # OR
-  # services.pipewire = {
-  #   enable = true;
-  #   pulse.enable = true;
-  # };
+   services.pipewire = {
+     enable = true;
+     pulse.enable = true;
+   };
 
   # Enable touchpad support (enabled default in most desktopManager).
-  # services.libinput.enable = true;
+   services.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
    users.users.matholl = {
@@ -84,22 +79,20 @@
 
     programs.firefox.enable = true;
 
-    programs.hyprland.enable = true;
 
-   # List packages installed in system profile.
-    #You can use https://search.nixos.org/ to find more packages (and options).
-    environment.systemPackages = with pkgs; [
-     neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-     wget
-     git
-     curl
-     kitty
-     waybar
-     wofi
-     mako
-     fastfetch	
+    programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+    };
+
+   nix.settings.experimental-features = [
+   "nix-command"
+   "flakes"
    ];
-
+   
+   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+   "obsidian"
+   ];
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
