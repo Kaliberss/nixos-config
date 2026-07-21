@@ -26,8 +26,12 @@
    
    programs.git = {
    enable = true;
-   userName = "matholl";
-   userEmail = "matheusoliveirad2005@gmail.com";
+   settings = {
+     user = {
+       name = "matholl";
+       email = "matheusoliveirad2005@gmail.com";
+       };
+     };
    };
 
    programs.home-manager.enable = true;
