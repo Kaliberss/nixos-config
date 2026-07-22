@@ -34,5 +34,33 @@
      };
    };
 
+   programs.neovim ={
+     enable = true;
+     defaultEditor = true;
+
+     plugins = with pkgs.vimPlugins; [
+       nvim-treesitter.withAllGrammars
+       nvim-lspconfig
+       blink-cmp
+
+       telescope-nvim
+       plenary-nvim
+
+       lualine-nvim
+      ];
+
+      extraPackages = with pkgs; [
+         fd
+	];
+    };
+
+   home.packages = with pkgs; [
+     wofi
+     mako
+     fastfetch
+     ripgrep
+     obsidian
+     yazi
+    ];
    programs.home-manager.enable = true;
 }
