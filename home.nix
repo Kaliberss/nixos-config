@@ -4,6 +4,11 @@
    home.username = "matholl";
    home.homeDirectory = "/home/matholl";
    home.stateVersion = "26.05";
+   
+   programs.bash = {
+       enable = true;
+   };
+
 
    programs.zoxide = {
    enable = true;
