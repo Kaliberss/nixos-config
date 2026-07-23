@@ -15,11 +15,11 @@ vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Telescope live gr
 vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Telescope buffers"})
 vim.keymap.set("n", "<leader>fh",  builtin.help_tags, { desc = "Telescope help tags"})
 
-require("nvim-tresitter.configs").setup({
-	highlight = {enable = true}
-	indent = {enable = true}
+require("nvim-treesitter").setup({
+	highlight = {enable = true},
+	indent = {enable = true},
 })
-require("lualine).setup({
+require("lualine").setup({
 	options = {
 		theme = "auto",
 		icons_enabled = true,
@@ -37,9 +37,12 @@ require("blink.cmp").setup({
 	},
 })
 
-local lspconfig = require("lspconfig")
+vim.lsp.config("clangd",{
+    cmd = {"clangd" },
+    filetypes = {"c", "cpp", "objc", "objcpp"},
+})
 
-lspconfig.clangd.setup({})
+vim.lsp.enable("clangd")
 
 vim.api.nvim_create_autocmd("LspAttach",{
 	callback = function(args)
@@ -47,6 +50,6 @@ vim.api.nvim_create_autocmd("LspAttach",{
 		vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
 		vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
 		vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename,opts)
-		vim.keymap.set({"n", "v"},"<leader>ca" vim.lsp.buf.code_action,opts)
+		vim.keymap.set({"n", "v"},"<leader>ca", vim.lsp.buf.code_action,opts)
 	end,
 })
