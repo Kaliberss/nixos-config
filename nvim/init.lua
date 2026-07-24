@@ -53,3 +53,11 @@ vim.api.nvim_create_autocmd("LspAttach",{
 		vim.keymap.set({"n", "v"},"<leader>ca", vim.lsp.buf.code_action,opts)
 	end,
 })
+
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = { "c", "cpp", "lua", "nix" },
+    callback = function()
+        vim.treesitter.start()
+    end,
+})
+
