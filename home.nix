@@ -1,12 +1,12 @@
 {config, pkgs, ...}:
-
+{
   imports = [
   ./home-modules/shell.nix
   ./home-modules/git.nix
   ./home-modules/kitty.nix
   ./home-modules/neovim.nix
   ];
- {
+ 
    home.username = "matholl";
    home.homeDirectory = "/home/matholl";
    home.stateVersion = "26.05";
