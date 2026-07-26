@@ -7,17 +7,17 @@
    programs.bash = {
        enable = true;
        shellAliases = {
-           l = "eza -blF --git --header --group-directories-first --icons=auto --color=auto"
-           ll = "eza -la --git --header --octal-permissions --group-directories-first --icons=auto --color=auto"
-           la = "eza -la --git --header --group-directories-first --icons=auto --color=auto" 
-           lm = "eza -l --git --header --sort=modified --reverse --group-directories-first --icons=auto --color=auto"
+           l = "eza -blF --git --header --group-directories-first --icons=auto --color=auto";
+           ll = "eza -la --git --header --octal-permissions --group-directories-first --icons=auto --color=auto";
+           la = "eza -la --git --header --group-directories-first --icons=auto --color=auto"; 
+           lm = "eza -l --git --header --sort=modified --reverse --group-directories-first --icons=auto --color=auto";
 
-           l1 = "eza --oneline --group-directories-first --icons=auto --color=auto"
-           lt = "eza --tree --level=2 --group-directories-first --icons=auto --color=auto"
-           ls = "eza --group-directories-first --icons=auto --color=auto
+           l1 = "eza --oneline --group-directories-first --icons=auto --color=auto";
+           lt = "eza --tree --level=2 --group-directories-first --icons=auto --color=auto";
+           ls = "eza --group-directories-first --icons=auto --color=auto";
 
 
-       }
+       };
    };
 
    programs.fzf = {

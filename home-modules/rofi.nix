@@ -3,7 +3,6 @@
 {
     programs.rofi = {
         enable = true;
-        package = pgks.rofi-wayland;
 
         terminal = "kitty";
 

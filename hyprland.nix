@@ -3,7 +3,7 @@
 {
  hardware.graphics.enable = true; 
  programs.uwsm.enable = true;
- programs.hyprland{
+ programs.hyprland = {
      enable = true;
      withUWSM = true;
  };

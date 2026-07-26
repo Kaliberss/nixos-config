@@ -26,6 +26,8 @@
      wl-clipboard
      btop
      hyprpaper
+     waybar
+     thunar
     ];
    programs.home-manager.enable = true;
 }

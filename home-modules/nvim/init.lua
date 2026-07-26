@@ -61,8 +61,8 @@ vim.api.nvim_create_autocmd("FileType", {
     end,
 })
 require("tokyonight").setup({
-    style = "night"
-    transparent = true;
+    style = "night",
+    transparent = true,
 })
 
 vim.cmd.colorscheme("tokyonight")
