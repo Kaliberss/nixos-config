@@ -5,6 +5,7 @@
   ./home-modules/git.nix
   ./home-modules/kitty.nix
   ./home-modules/neovim.nix
+  ./home-modules/rofi.nix
   ];
  
    home.username = "matholl";
@@ -24,6 +25,7 @@
      wlogout
      wl-clipboard
      btop
+     hyprpaper
     ];
    programs.home-manager.enable = true;
 }

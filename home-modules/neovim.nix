@@ -13,6 +13,8 @@
        plenary-nvim
 
        lualine-nvim
+
+       tokyonight-nvim
       ];
 
       extraPackages = with pkgs; [

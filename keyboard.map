@@ -1,3 +1,0 @@
-include "br-abnt2"
-
-keycode 97 = slash question
