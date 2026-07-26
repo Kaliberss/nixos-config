@@ -4,9 +4,8 @@
    enableBashIntegration = true;
    };
 
-   programs.bash = {
-       enable = true;
-       shellAliases = {
+   programs.bash.enable = true;
+   home.shellAliases = {
            l = "eza -blF --git --header --group-directories-first --icons=auto --color=auto";
            ll = "eza -la --git --header --octal-permissions --group-directories-first --icons=auto --color=auto";
            la = "eza -la --git --header --group-directories-first --icons=auto --color=auto"; 
@@ -18,7 +17,6 @@
 
 
        };
-   };
 
    programs.fzf = {
    enable = true;
