@@ -28,6 +28,7 @@
      hyprpaper
      waybar
      thunar
+     nerd-fonts.jetbrains-mono
     ];
    programs.home-manager.enable = true;
 }
