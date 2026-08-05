@@ -44,6 +44,14 @@ vim.lsp.config("clangd",{
 
 vim.lsp.enable("clangd")
 
+vim.lsp.config("tinymist",{
+    settings = {
+        exportPdf = "onSave",
+    },
+})
+
+vim.lsp.enable("tinymist")
+
 vim.api.nvim_create_autocmd("LspAttach",{
 	callback = function(args)
 		local opts = {buffer = args.buf}

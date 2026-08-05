@@ -92,9 +92,16 @@
    "flakes"
    ];
    
-   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-   "obsidian"
-   ];
+   fonts = {
+       enableDefaultPackages = true;
+       fontDir.enable = true;
+
+       packages = with pkgs; [
+       nerd-fonts.jetbrains-mono
+       noto-fonts
+       libertinus
+       dejavu_fonts
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;

@@ -15,7 +15,7 @@
            lt = "eza --tree --level=2 --group-directories-first --icons=auto --color=auto";
            ls = "eza --group-directories-first --icons=auto --color=auto";
            
-           nrs = "sudo nixos-rebuild switch --flake ~/dotfiles#laptop"
+           nrs = "sudo nixos-rebuild switch --flake ~/dotfiles#laptop";
 
        };
 

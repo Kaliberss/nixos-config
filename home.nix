@@ -11,14 +11,13 @@
    home.username = "matholl";
    home.homeDirectory = "/home/matholl";
    home.stateVersion = "26.05";
-   
+ 
+   environment.variables.TYPST_FONT_PATHS = "$HOME/.nix-profile/share/fonts:/run/current-system/sw/share/fonts";
  
    home.packages = with pkgs; [
-     wofi
      mako
      fastfetch
      ripgrep
-     obsidian
      yazi
      eza 
      bat 
@@ -28,7 +27,11 @@
      hyprpaper
      waybar
      thunar
-     nerd-fonts.jetbrains-mono
+     grim
+     slurp
+     zathura
+     typst
+     tinymist
     ];
    programs.home-manager.enable = true;
 }
