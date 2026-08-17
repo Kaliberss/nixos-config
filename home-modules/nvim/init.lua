@@ -52,6 +52,16 @@ vim.lsp.config("tinymist",{
 
 vim.lsp.enable("tinymist")
 
+vim.lsp.enable("hls")
+
+vim.lsp.config("basedpyright",{
+    settings = {
+        python = {
+            venvPath = ".",
+            venv = ".venv",
+        },
+    },
+})
 vim.api.nvim_create_autocmd("LspAttach",{
 	callback = function(args)
 		local opts = {buffer = args.buf}
@@ -63,7 +73,7 @@ vim.api.nvim_create_autocmd("LspAttach",{
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "c", "cpp", "lua", "nix" },
+    pattern = { "c", "cpp", "lua", "nix", "typ", "rs", "hs" },
     callback = function()
         vim.treesitter.start()
     end,

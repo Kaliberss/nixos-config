@@ -11,9 +11,24 @@
    home.username = "matholl";
    home.homeDirectory = "/home/matholl";
    home.stateVersion = "26.05";
- 
-   environment.variables.TYPST_FONT_PATHS = "$HOME/.nix-profile/share/fonts:/run/current-system/sw/share/fonts";
- 
+    
+   services.hyprpaper = {
+       enable = true;
+       settings = {
+           preload = [
+           "/home/matholl/wallpapers/wp.png"
+           ];
+           
+           wallpaper = [
+           {
+               monitor = "";
+               path = "/home/matholl/wallpapers/wp.png";
+               fit_mode = "cover";
+           }
+        ];
+        splash = false;
+     };
+  };
    home.packages = with pkgs; [
      mako
      fastfetch
