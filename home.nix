@@ -5,32 +5,15 @@
   ./home-modules/git.nix
   ./home-modules/kitty.nix
   ./home-modules/neovim.nix
-  ./home-modules/rofi.nix
   ];
  
    home.username = "matholl";
    home.homeDirectory = "/home/matholl";
    home.stateVersion = "26.05";
-    
-   services.hyprpaper = {
-       enable = true;
-       settings = {
-           preload = [
-           "/home/matholl/wallpapers/wp.png"
-           ];
-           
-           wallpaper = [
-           {
-               monitor = "";
-               path = "/home/matholl/wallpapers/wp.png";
-               fit_mode = "cover";
-           }
-        ];
-        splash = false;
-     };
-  };
+   
+   xdg.configFile."hypr/hyprland.lua".source = ./hypr/hyprland.lua;
+
    home.packages = with pkgs; [
-     mako
      fastfetch
      ripgrep
      yazi
@@ -39,14 +22,14 @@
      wlogout
      wl-clipboard
      btop
-     hyprpaper
-     waybar
      thunar
      grim
      slurp
      zathura
      typst
      tinymist
+
+     inputs.noctalia.packages.${pkgs.system}.default
     ];
    programs.home-manager.enable = true;
 }

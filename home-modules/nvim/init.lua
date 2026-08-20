@@ -73,7 +73,7 @@ vim.api.nvim_create_autocmd("LspAttach",{
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "c", "cpp", "lua", "nix", "typ", "rs", "hs" },
+    pattern = { "c", "cpp", "lua", "nix", "typ", "rs", "hs", "py" },
     callback = function()
         vim.treesitter.start()
     end,
