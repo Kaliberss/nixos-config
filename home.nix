@@ -1,4 +1,4 @@
-{config, pkgs, ...}:
+{inputs,config, pkgs, ...}:
 {
   imports = [
   ./home-modules/shell.nix
@@ -11,7 +11,6 @@
    home.homeDirectory = "/home/matholl";
    home.stateVersion = "26.05";
    
-   xdg.configFile."hypr/hyprland.lua".source = ./hypr/hyprland.lua;
 
    home.packages = with pkgs; [
      fastfetch
@@ -28,7 +27,7 @@
      zathura
      typst
      tinymist
-
+     libreoffice
      inputs.noctalia.packages.${pkgs.system}.default
     ];
    programs.home-manager.enable = true;

@@ -12,7 +12,7 @@
         };
       };
 
-      outputs = {self, nixpkgs, home-manager, noctalia ...} @inputs: {
+      outputs = {self, nixpkgs, home-manager, noctalia, ...} @inputs: {
 
       nixosConfigurations = {
 

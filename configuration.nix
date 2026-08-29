@@ -64,7 +64,10 @@
      enable = true;
      pulse.enable = true;
    };
-
+   
+   services.dbus.enable = true;
+   services.power-profiles-daemon.enable = true;
+   services.upower.enable = true;
   # Enable touchpad support (enabled default in most desktopManager).
    services.libinput.enable = true;
 

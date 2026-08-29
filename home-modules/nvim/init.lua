@@ -54,7 +54,11 @@ vim.lsp.enable("tinymist")
 
 vim.lsp.enable("hls")
 
-vim.lsp.config("basedpyright",{
+vim.lsp.config('basedpyright',{
+    cmd = { 'basedpyright-langserver', '--stdio'},
+    filetypes = {'python'},
+    root_markers = { 'pyproject.toml', 'setup.py', 'setup.cfg', 'requirements.txt', '.git'},
+
     settings = {
         python = {
             venvPath = ".",
@@ -62,6 +66,8 @@ vim.lsp.config("basedpyright",{
         },
     },
 })
+vim.lsp.enable('basedpyright')
+
 vim.api.nvim_create_autocmd("LspAttach",{
 	callback = function(args)
 		local opts = {buffer = args.buf}
