@@ -66,7 +66,7 @@ vim.lsp.config('basedpyright',{
         },
     },
 })
-vim.lsp.enable('basedpyright')
+ vim.lsp.enable('basedpyright')
 
 vim.api.nvim_create_autocmd("LspAttach",{
 	callback = function(args)

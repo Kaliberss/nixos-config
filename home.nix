@@ -5,6 +5,7 @@
   ./home-modules/git.nix
   ./home-modules/kitty.nix
   ./home-modules/neovim.nix
+  ./home-modules/tmux.nix
   ];
  
    home.username = "matholl";
@@ -29,6 +30,7 @@
      tinymist
      libreoffice
      inputs.noctalia.packages.${pkgs.system}.default
+     feh
     ];
    programs.home-manager.enable = true;
 }
