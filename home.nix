@@ -14,6 +14,7 @@
    
 
    home.packages = with pkgs; [
+     vim
      fastfetch
      ripgrep
      yazi

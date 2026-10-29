@@ -86,6 +86,9 @@
 
     programs.firefox.enable = true;
 
+    programs.nix-ld.enable = true;
+    programs.nix-ld.libraries = with pkgs; [
+    ];
 
     programs.direnv = {
     enable = true;
@@ -93,6 +96,7 @@
     };
    
    nix.registry.nixpkgs.flake = inputs.nixpkgs;
+   services.fwupd.enable = true;
 
    nix.settings.experimental-features = [
    "nix-command"

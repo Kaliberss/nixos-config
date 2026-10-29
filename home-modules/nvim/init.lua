@@ -47,6 +47,7 @@ vim.lsp.enable("clangd")
 vim.lsp.config("tinymist",{
     settings = {
         exportPdf = "onSave",
+        outputPath = "$dir/pdfs/$name"
     },
 })
 
@@ -79,7 +80,7 @@ vim.api.nvim_create_autocmd("LspAttach",{
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "c", "cpp", "lua", "nix", "typ", "rs", "hs", "py" },
+    pattern = { "c", "cpp", "lua", "nix", "typst", "rust", "haskell", "python" },
     callback = function()
         vim.treesitter.start()
     end,
