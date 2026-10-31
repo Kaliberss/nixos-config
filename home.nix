@@ -32,6 +32,7 @@
      libreoffice
      inputs.noctalia.packages.${pkgs.system}.default
      feh
+     opencode
     ];
    programs.home-manager.enable = true;
 }
