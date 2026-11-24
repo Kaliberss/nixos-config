@@ -85,9 +85,21 @@ vim.api.nvim_create_autocmd("FileType", {
         vim.treesitter.start()
     end,
 })
+
+vim.pack.add({
+"https://github.com/folke/tokyonight.nvim"
+})
+
 require("tokyonight").setup({
-    style = "night",
+    style = "storm",
     transparent = true,
+    terminal_colors = true,
+    styles = {
+        comments = { italic = true },
+        keywords = { italic = true },
+        sidebars = "dark",
+        floats = "dark",
+    },
 })
 
 vim.cmd.colorscheme("tokyonight")

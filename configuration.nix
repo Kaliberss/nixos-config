@@ -64,7 +64,7 @@
      enable = true;
      pulse.enable = true;
    };
-   
+   virtualisation.docker.enable = true; 
    services.dbus.enable = true;
    services.power-profiles-daemon.enable = true;
    services.upower.enable = true;
@@ -88,6 +88,7 @@
 
     programs.nix-ld.enable = true;
     programs.nix-ld.libraries = with pkgs; [
+    stdenv.cc.cc.lib
     ];
 
     programs.direnv = {
@@ -97,6 +98,9 @@
    
    nix.registry.nixpkgs.flake = inputs.nixpkgs;
    services.fwupd.enable = true;
+   services.gnome.gnome-keyring.enable = true;
+   security.pam.services.greetd.enableGnomeKeyring = true;
+
 
    nix.settings.experimental-features = [
    "nix-command"
